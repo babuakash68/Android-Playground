@@ -1,113 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".activities.dashboard.DashboardActivity">
 
-    <!-- User Info Card -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/userInfoCard"
+    <TextView
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/user_card_bg"
-        app:strokeColor="@color/user_card_stroke"
-        app:strokeWidth="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/userIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/circle_background"
+        android:padding="8dp"
+        android:src="@drawable/ic_profile_placeholder"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CircleImageView" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/photoCard"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:cardBackgroundColor="@color/user_photo_bg"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="4dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/userPhoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="User Profile Photo"
-                    android:scaleType="centerCrop" />
-
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="bottom|end"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/status_indicator" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:textColor="@color/user_name"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/userEmail"
-                app:layout_constraintStart_toEndOf="@+id/photoCard"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/userEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/user_email"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/userName"
-                app:layout_constraintTop_toBottomOf="@+id/userName" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- Topics List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/topicsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         android:clipToPadding="false"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="16dp"
-        android:scrollbars="vertical"
-        android:fadeScrollbars="false"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
-        app:layout_constraintTop_toBottomOf="@+id/userInfoCard" />
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
-    <!-- Logout Button -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/logoutButton"
+        android:id="@+id/signInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        android:text="Logout"
-        android:textSize="16sp"
-        app:backgroundTint="@color/white"
-        app:icon="@android:drawable/ic_menu_close_clear_cancel"
-        app:iconGravity="textStart"
-        app:iconPadding="8dp"
-        app:iconTint="@color/purple_700"
-        app:strokeColor="@color/button_stroke"
-        app:strokeWidth="1dp"
-        android:textColor="@color/purple_700"
+        android:text="Sign In"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -63,7 +63,7 @@ class ActivityTheoryActivity : AppCompatActivity() {
         theoryCard = findViewById(R.id.theoryCard)
         diagramCard = findViewById(R.id.diagramCard)
         theoryWebView = findViewById(R.id.theoryWebView)
-        interactiveButton = findViewById(R.id.interactiveButton)
+        interactiveButton = findViewById(R.id.interactiveDemoButton)
 
         // Initialize lifecycle containers
         onCreateContainer = findViewById(R.id.onCreateContainer)

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="300dp"
+    android:viewportWidth="400"
+    android:viewportHeight="300">
+
+    <!-- Background -->
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M0,0h400v300h-400z" />
+
+    <!-- Title -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M20,30h360v2h-360z" />
+
+    <!-- Fragment Lifecycle States -->
+    <!-- INITIALIZED -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#6200EE"
+        android:strokeWidth="2"
+        android:pathData="M50,60h100v40h-100z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,80h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,90h80v2h-80z" />
+
+    <!-- CREATED -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#6200EE"
+        android:strokeWidth="2"
+        android:pathData="M200,60h100v40h-100z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M210,80h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M210,90h80v2h-80z" />
+
+    <!-- STARTED -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#6200EE"
+        android:strokeWidth="2"
+        android:pathData="M350,60h100v40h-100z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M360,80h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M360,90h80v2h-80z" />
+
+    <!-- RESUMED -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#6200EE"
+        android:strokeWidth="2"
+        android:pathData="M200,120h100v40h-100z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M210,140h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M210,150h80v2h-80z" />
+
+    <!-- DESTROYED -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#6200EE"
+        android:strokeWidth="2"
+        android:pathData="M50,180h100v40h-100z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,200h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,210h80v2h-80z" />
+
+    <!-- Arrows -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M150,80l10,0l-5,10z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M300,80l10,0l-5,10z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M250,140l0,10l10,-5z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M150,200l10,0l-5,10z" />
+
+    <!-- Text Labels -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M70,75h60v2h-60z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M220,75h60v2h-60z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M370,75h60v2h-60z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M220,135h60v2h-60z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M70,195h60v2h-60z" />
+
+    <!-- Method Labels -->
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,85h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M210,85h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M360,85h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M210,145h80v2h-80z" />
+    <path
+        android:fillColor="#6200EE"
+        android:pathData="M60,205h80v2h-80z" />
+</vector> 

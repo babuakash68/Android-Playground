@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Understanding Context in Android</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                padding: 16px;
+                background-color: #FAFAFA;
+            }
+            .section-title {
+                font-size: 20px;
+                font-weight: bold;
+                color: #6200EE;
+                margin-top: 24px;
+                margin-bottom: 16px;
+            }
+            .note {
+                background-color: #F5F5F5;
+                padding: 16px;
+                border-radius: 8px;
+                margin: 16px 0;
+            }
+            code {
+                background-color: #E0E0E0;
+                padding: 2px 4px;
+                border-radius: 4px;
+                font-family: monospace;
+            }
+            ul {
+                padding-left: 20px;
+            }
+            li {
+                margin-bottom: 8px;
+            }
+            a {
+                color: #6200EE;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            blockquote {
+                font-style: italic;
+                color: #555;
+                border-left: 4px solid #DDD;
+                padding-left: 12px;
+                margin: 16px 0;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Understanding Context in Android</h1>
+
+        <blockquote>
+            Imagine you're at a massive party 🎉. You're in a room (Activity), but you can also go to the kitchen (Service), or access the entire house's intercom (Application). Your context determines what you can do and where — like, you wouldn't try to order pizza from the fridge, right? That's what Android Context is all about.
+        </blockquote>
+
+        <div class="section-title">📱 What is Context?</div>
+        <p>
+            <strong>Context</strong> is the gateway between your app and the Android system. It's an abstract class that allows access to application-specific resources and classes, and information about the environment your app is running in.
+        </p>
+
+        <div class="section-title">🔍 Types of Context</div>
+        <ul>
+            <li><strong>Application Context:</strong> Tied to the application's lifecycle, used when you don't need an Activity/UI context (e.g., background tasks, singletons).</li>
+            <li><strong>Activity Context:</strong> Bound to the Activity lifecycle. Use it for anything UI-related — dialogs, toasts, layout inflaters, etc.</li>
+            <li><strong>Service Context:</strong> Used within Services, particularly for tasks that should continue in the background.</li>
+        </ul>
+
+        <div class="section-title">⚙️ How Context Works Internally</div>
+        <p>
+            Internally, <code>Context</code> is an abstract class implemented by several concrete classes like <code>Activity</code>, <code>Application</code>, <code>Service</code>, etc. When your app launches, the system creates a <code>ContextImpl</code> object and attaches it to your application and its components. This object provides the actual link to system-level services like LayoutInflater, ClipboardManager, etc.
+        </p>
+        <p>
+            Each context variant wraps the same base functionality but scopes it differently — so using the wrong one in the wrong place can lead to memory leaks, unexpected crashes, or stale references.
+        </p>
+
+        <div class="section-title">💡 Common Uses</div>
+        <ul>
+            <li>Accessing system services using <code>getSystemService()</code></li>
+            <li>Inflating layouts using <code>LayoutInflater.from(context)</code></li>
+            <li>Accessing app resources like strings, drawables, assets</li>
+            <li>Starting a new Activity or Service</li>
+            <li>Showing toasts and dialogs</li>
+            <li>Accessing SharedPreferences or files</li>
+        </ul>
+
+        <div class="section-title">🧠 Pro Tips</div>
+        <div class="note">
+            <ul>
+                <li>⚠️ Never store Activity Context in singletons or static fields — it causes memory leaks!</li>
+                <li>🕵️‍♀️ Use <code>applicationContext</code> for long-living background tasks or shared instances.</li>
+                <li>🧼 Clean up any context-bound resources in <code>onDestroy()</code> or when the component dies.</li>
+                <li>📍 If you're confused, ask yourself: "Will this task outlive the activity?" → If yes, use Application Context.</li>
+                <li>💡 Use <code>WeakReference</code> if you really need to hold onto an Activity Context somewhere longer.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">📚 Learn More</div>
+        <ul>
+            <li><a href="https://developer.android.com/reference/android/content/Context" target="_blank">Official Context Documentation</a></li>
+             <li><a href="https://developer.android.com/guide/components/activities/parcelables-and-bundles#context" target="_blank">Using Context Safely in Android</a></li>
+        </ul>

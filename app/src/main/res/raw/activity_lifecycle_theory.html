@@ -98,7 +98,7 @@
         <h1>📱 Android Activity Lifecycle Guide</h1>
         <div class="section-title">🚶 A Day in Your Life: An Analogy</div>
         <p>
-            Imagine your day as an Android Activity. 🧠
+            Imagine your day as an Android Activity.  🧠
             You <strong>wake up</strong> (<code>onCreate()</code>), get ready (<code>onStart()</code>), and head out to work (<code>onResume()</code>)—you’re now fully active and interacting with the world.
             Then you take a lunch break (<code>onPause()</code>), step out for an errand (<code>onStop()</code>), and come back to continue your work (<code>onRestart()</code> → <code>onStart()</code> → <code>onResume()</code>).
             At the end of the day, you sleep or your day ends (<code>onDestroy()</code>).
@@ -192,15 +192,23 @@
             </table>
         </div>
 
-        <div class="section-title">🧠 Pro Tip</div>
+        <div class="section-title">🧠 Pro Tips</div>
         <div class="note">
-            Use <code>ViewModel</code> to survive configuration changes like screen rotation. Lifecycle-aware components (LiveData, LifecycleObserver) help manage state efficiently.
+            <ul>
+                <li>💾 Use <code>ViewModel</code> to retain UI-related data across configuration changes like screen rotations.</li>
+                <li>🧠 Prefer placing UI initialization in <code>onCreate()</code> and avoid heavy tasks there — use <code>onStart()</code> or <code>onResume()</code> instead.</li>
+                <li>⛔ Avoid long-running tasks in <code>onPause()</code> and <code>onStop()</code> — they may get killed anytime.</li>
+                <li>🔄 Handle background tasks properly in <code>onStop()</code> and clean up in <code>onDestroy()</code>.</li>
+                <li>🧹 Don't forget to unregister listeners and release resources in <code>onPause()</code> or <code>onDestroy()</code>.</li>
+            </ul>
         </div>
 
         <div class="section-title">📚 Learn More</div>
         <ul>
             <li><a href="https://developer.android.com/guide/components/activities/activity-lifecycle" target="_blank">Official Android Lifecycle Docs</a></li>
             <li><a href="https://developer.android.com/topic/libraries/architecture/lifecycle" target="_blank">Android Architecture Lifecycle Components</a></li>
-        </ul>
+            <li><a href="https://developer.android.com/codelabs/android-lifecycle#0" target="_blank">Codelab: Managing Lifecycle with ViewModel and LiveData</a></li>
+           </ul>
+
     </body>
 </html>

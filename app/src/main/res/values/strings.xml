@@ -3,5 +3,6 @@
     <string name="app_name">Android Playground</string>
     <string name="learn_android_topics">Learn Android Topics</string>
     <string name="activity_lifecycle">Activity Lifecycle</string>
-
+    <string name="fragment_lifecycle">Fragment Lifecycle</string>
+    <string name="context">Context</string>
 </resources>

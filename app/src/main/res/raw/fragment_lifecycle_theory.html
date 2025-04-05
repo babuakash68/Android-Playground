@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Fragment Lifecycle - Android Guide</title>
+        <style>
+            body {
+              font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+              background-color: #fefefe;
+              color: #333;
+              line-height: 1.6;
+              padding: 20px;
+            }
+
+            h1 {
+              color: #8e44ad;
+              text-align: center;
+            }
+
+            blockquote {
+              font-style: italic;
+              background: #f9f2ff;
+              border-left: 6px solid #8e44ad;
+              padding: 15px;
+              margin: 20px 0;
+              color: #555;
+            }
+
+            .section-title {
+              margin-top: 30px;
+              font-size: 1.3rem;
+              color: #8e44ad;
+              border-left: 4px solid #9b59b6;
+              padding-left: 10px;
+              margin-bottom: 10px;
+            }
+
+            ul {
+              list-style-type: disc;
+              margin-left: 20px;
+            }
+
+            code {
+              background-color: #f4f1fa;
+              padding: 2px 6px;
+              border-radius: 4px;
+              font-family: monospace;
+            }
+
+            .note {
+              background-color: #eaf2f8;
+              padding: 10px;
+              border-left: 5px solid #5dade2;
+              margin: 10px 0;
+            }
+
+            .table-container {
+              overflow-x: auto;
+              margin-top: 20px;
+              border-radius: 8px;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .lifecycle-table {
+              width: 100%;
+              min-width: 600px;
+              border-collapse: collapse;
+              background: #fff;
+              border: 1px solid #ddd;
+            }
+
+            .lifecycle-table th,
+            .lifecycle-table td {
+              padding: 10px;
+              border: 1px solid #ddd;
+              text-align: left;
+              font-size: 14px;
+            }
+
+            .lifecycle-table th {
+              background-color: #9b59b6;
+              color: white;
+            }
+
+            a {
+              color: #8e44ad;
+            }
+
+            @media (max-width: 600px) {
+              body {
+                padding: 10px;
+              }
+
+              h1 {
+                font-size: 1.5rem;
+              }
+
+              .section-title {
+                font-size: 1.1rem;
+              }
+
+              .lifecycle-table th,
+              .lifecycle-table td {
+                font-size: 13px;
+              }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Understanding Fragment Lifecycle</h1>
+
+        <blockquote>
+            Ever tried watching a movie with your friends where one keeps pausing, one walks out for snacks, and another keeps restarting from the beginning? That’s how Fragment lifecycle feels inside an Activity — a bunch of independent minds trying to sync with the host but living their own lives!
+        </blockquote>
+
+        <p>
+            Just like those unpredictable friends, fragments are independent UI components that live inside activities but have their own set of rules. They can pop in, vanish, or even reappear when the user rotates the screen. If you don't understand their lifecycle, your UI may crash harder than your weekend plans.
+        </p>
+
+        <div class="section-title">🎭 Life of a Fragment: The Theatre Analogy</div>
+        <p>
+            Imagine a Fragment as a supporting actor on the stage of your app (aka the Activity). 🎬
+            The Director (Activity) says “Action!” and the Fragment makes an entrance (<code>onAttach()</code> → <code>onCreate()</code> → <code>onCreateView()</code>).
+            It gets into character with <code>onViewCreated()</code>, hits the spotlight in <code>onStart()</code> and <code>onResume()</code>.
+            When the play pauses, so does the actor: <code>onPause()</code> → <code>onStop()</code>.
+            Curtain call? The Fragment exits via <code>onDestroyView()</code> → <code>onDestroy()</code> → <code>onDetach()</code>.
+        </p>
+
+        <div class="section-title">🔄 Fragment Lifecycle Explained</div>
+        <p>Fragments have their own lifecycle, closely tied to the host Activity. But unlike Activities, Fragments go through extra steps for view creation and destruction. Think of them as more moody and modular. 😉</p>
+
+        <div class="section-title">🔬 Deep Dive: Fragment Internals</div>
+        <ul>
+            <li><strong>onAttach():</strong> Fragment gets a reference to its host Activity. Like "Hello host, I'm here!"</li>
+            <li><strong>onCreate():</strong> Initialize non-UI stuff. Perfect time for arguments via <code>getArguments()</code>.</li>
+            <li><strong>onCreateView():</strong> Inflate the layout. It’s like decorating your personal room.</li>
+            <li><strong>onViewCreated():</strong> Called after the view is created. Ideal for setting up UI and listeners.</li>
+            <li><strong>onStart():</strong> Fragment is now visible.</li>
+            <li><strong>onResume():</strong> Fully active and user can interact.</li>
+            <li><strong>onPause()/onStop():</strong> UI is going out of focus. Time to save data or animations.</li>
+            <li><strong>onDestroyView():</strong> View is destroyed but fragment still exists. Free UI resources here.</li>
+            <li><strong>onDestroy():</strong> Called to do final cleanup.</li>
+            <li><strong>onDetach():</strong> Fragment says goodbye to its host.</li>
+        </ul>
+
+        <div class="section-title">📊 Lifecycle Summary Table</div>
+        <div class="table-container">
+            <table class="lifecycle-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Triggered When?</th>
+                        <th>What to Do</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>onAttach()</code></td>
+                        <td>Fragment is attached to its Activity</td>
+                        <td>Get reference to Activity/context</td>
+                    </tr>
+                    <tr>
+                        <td><code>onCreate()</code></td>
+                        <td>Before creating view</td>
+                        <td>Initialize variables, fetch arguments</td>
+                    </tr>
+                    <tr>
+                        <td><code>onCreateView()</code></td>
+                        <td>When Fragment creates UI</td>
+                        <td>Inflate layout and return root view</td>
+                    </tr>
+                    <tr>
+                        <td><code>onViewCreated()</code></td>
+                        <td>After view is created</td>
+                        <td>Setup UI elements and logic</td>
+                    </tr>
+                    <tr>
+                        <td><code>onStart()</code></td>
+                        <td>Fragment is visible</td>
+                        <td>Resume visual UI</td>
+                    </tr>
+                    <tr>
+                        <td><code>onResume()</code></td>
+                        <td>Fragment becomes interactive</td>
+                        <td>Start animations, listeners</td>
+                    </tr>
+                    <tr>
+                        <td><code>onPause()</code></td>
+                        <td>Fragment goes to background</td>
+                        <td>Pause tasks or save data</td>
+                    </tr>
+                    <tr>
+                        <td><code>onStop()</code></td>
+                        <td>Fragment no longer visible</td>
+                        <td>Release heavier resources</td>
+                    </tr>
+                    <tr>
+                        <td><code>onDestroyView()</code></td>
+                        <td>View is being destroyed</td>
+                        <td>Clean up UI references</td>
+                    </tr>
+                    <tr>
+                        <td><code>onDestroy()</code></td>
+                        <td>Fragment is being destroyed</td>
+                        <td>Final cleanup</td>
+                    </tr>
+                    <tr>
+                        <td><code>onDetach()</code></td>
+                        <td>Fragment is detached from Activity</td>
+                        <td>Remove any Activity references</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h1>Understanding Fragment Lifecycle</h1>
+
+        <blockquote>
+            Ever tried watching a movie with your friends where one keeps pausing, one walks out for snacks, and another keeps restarting from the beginning?
+            That’s how Fragment lifecycle feels inside an Activity — a bunch of independent minds trying to sync with the host but living their own lives!
+        </blockquote>
+
+        <p>
+            Just like those unpredictable friends, fragments are independent UI components that live inside activities but have their own set of rules.
+            They can pop in, vanish, or even reappear when the user rotates the screen. If you don't understand their lifecycle, your UI may crash harder than your weekend plans.
+        </p>
+
+        <div class="section-title">🧠 Pro Tips</div>
+        <div class="note">
+            <ul>
+                <li>✅ Always check <code>isAdded()</code> before accessing <code>getActivity()</code> to avoid <code>NullPointerException</code>.</li>
+                <li>❌ Avoid manipulating UI in <code>onCreate()</code> — the view hasn’t been created yet.</li>
+                <li>💡 Use <code>onViewCreated()</code> to safely interact with UI components.</li>
+                <li>🔁 Understand the difference between <code>onAttach()</code>, <code>onCreateView()</code>, and <code>onActivityCreated()</code> for smoother navigation and state management.</li>
+                <li>🧹 Always clean up resources in <code>onDestroyView()</code> to prevent memory leaks.</li>
+                <li>📦 Use <code>ViewModel</code> to retain UI-related data even across configuration changes.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">📚 Learn More</div>
+        <ul>
+            <li><a href="https://developer.android.com/guide/fragments/lifecycle" target="_blank">Official Fragment Lifecycle Docs</a></li>
+            <li><a href="https://developer.android.com/jetpack/androidx/releases/fragment" target="_blank">AndroidX Fragment Releases</a></li>
+           <li><a href="https://developer.android.com/jetpack/docs/guide#viewmodel" target="_blank">Using ViewModel with Fragments</a></li>
+        </ul>
+
+    </body>
+</html>

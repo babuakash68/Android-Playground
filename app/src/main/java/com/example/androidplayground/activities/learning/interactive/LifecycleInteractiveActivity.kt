@@ -1,6 +1,9 @@
 package com.example.androidplayground.activities.learning.interactive
 
 import android.animation.ObjectAnimator
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -28,6 +31,7 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
     private lateinit var achievementBadge: ImageView
     private lateinit var logText: TextView
     private lateinit var theoryFootnote: TextView
+    private lateinit var copyLogButton: MaterialButton
 
     // Interactive buttons
     private lateinit var startNewScreenButton: MaterialButton
@@ -36,10 +40,11 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
     private lateinit var minimizeButton: MaterialButton
     private lateinit var resetButton: MaterialButton
 
-    private val dateFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+    private val dateFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
     private val triedActions = mutableSetOf<String>()
     private var isFirstInteraction = true
     private var savedLogText = ""
+    private val logBuilder = StringBuilder()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +58,8 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
         // Restore log text if it was saved during rotation
         if (savedInstanceState != null && savedInstanceState.containsKey("log_text")) {
             savedLogText = savedInstanceState.getString("log_text", "") ?: ""
-            logText.text = savedLogText
+            logText.text = android.text.Html.fromHtml(savedLogText, android.text.Html.FROM_HTML_MODE_COMPACT)
+            logBuilder.append(savedLogText)
         }
         
         logLifecycleEvent("onCreate", "Setting up the interactive screen!", Color.GREEN)
@@ -69,6 +75,7 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
         achievementBadge = findViewById(R.id.achievementBadge)
         logText = findViewById(R.id.logText)
         theoryFootnote = findViewById(R.id.theoryFootnote)
+        copyLogButton = findViewById(R.id.copyLogButton)
 
         startNewScreenButton = findViewById(R.id.startNewScreenButton)
         closeScreenButton = findViewById(R.id.closeScreenButton)
@@ -113,7 +120,7 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
             tryAction("rotate_view")
             
             // Save current log text before recreation
-            savedLogText = logText.text.toString()
+            savedLogText = logBuilder.toString()
             
             // Log the rotation event
             logLifecycleEvent("onPause", "Rotating screen!", Color.YELLOW)
@@ -150,11 +157,35 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
                 hideWelcomeMessage()
             }
             tryAction("reset")
+            logBuilder.clear()
             logText.text = ""
             triedActions.clear()
             updateAchievement()
             showSnackbar("Log cleared! Try different actions.")
         }
+
+        copyLogButton.setOnClickListener {
+            copyLogToClipboard()
+        }
+    }
+
+    private fun copyLogToClipboard() {
+        // Strip HTML tags and convert to plain text
+        val plainText = logBuilder.toString()
+            .replace(Regex("<[^>]*>"), "") // Remove HTML tags
+            .replace("&nbsp;", " ") // Replace HTML spaces
+            .replace("&lt;", "<") // Replace HTML entities
+            .replace("&gt;", ">")
+            .replace("&amp;", "&")
+            .replace("&quot;", "\"")
+            .replace("&#39;", "'")
+            .replace(Regex("\\s+"), " ") // Replace multiple spaces with single space
+            .trim() // Remove extra whitespace
+        
+        val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Lifecycle Log", plainText)
+        clipboardManager.setPrimaryClip(clip)
+        logLifecycleEvent("System", "Log copied to clipboard", Color.GREEN)
     }
 
     private fun hideWelcomeMessage() {
@@ -170,8 +201,10 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
 
     private fun logLifecycleEvent(method: String, message: String, color: Int) {
         val timestamp = dateFormat.format(Date())
-        val logEntry = "$timestamp: $method - $message\n"
-        logText.append(logEntry)
+        val colorHex = String.format("#%06X", 0xFFFFFF and color)
+        val htmlMessage = "<font color='$colorHex'>[$timestamp] $method: $message</font><br>"
+        logBuilder.append(htmlMessage)
+        logText.text = android.text.Html.fromHtml(logBuilder.toString(), android.text.Html.FROM_HTML_MODE_COMPACT)
         
         // Scroll to bottom
         val scrollView = logText.parent as android.widget.ScrollView
@@ -270,6 +303,6 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         // Save the log text to preserve it during rotation
-        outState.putString("log_text", logText.text.toString())
+        outState.putString("log_text", logBuilder.toString())
     }
 } 

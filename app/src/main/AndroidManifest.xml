@@ -52,6 +52,22 @@
             android:name=".activities.learning.interactive.dummy.DummyActivity"
             android:exported="false"
             android:theme="@style/Theme.AndroidPlayground" />
+        <activity
+            android:name=".activities.learning.FragmentTheoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AndroidPlayground" />
+        <activity
+            android:name=".activities.learning.interactive.fragment.FragmentInteractiveActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AndroidPlayground" />
+        <activity
+            android:name=".activities.learning.TheoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AndroidPlayground" />
+        <activity
+            android:name=".activities.learning.interactive.context.ContextInteractiveActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AndroidPlayground" />
     </application>
 
 </manifest>

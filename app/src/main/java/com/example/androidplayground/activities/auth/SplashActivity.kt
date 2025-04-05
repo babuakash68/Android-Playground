@@ -10,6 +10,7 @@ import com.example.androidplayground.R
 import com.example.androidplayground.data.AppDatabase
 import com.example.androidplayground.activities.dashboard.DashboardActivity
 import com.example.androidplayground.activities.auth.MainActivity
+import com.example.androidplayground.data.User
 import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
@@ -28,9 +29,7 @@ class SplashActivity : AppCompatActivity() {
                     val intent = if (user != null) {
                         // User is logged in, go to Dashboard with user data
                         Intent(this@SplashActivity, DashboardActivity::class.java).apply {
-                            putExtra("user_email", user.email)
-                            putExtra("user_name", user.name)
-                            putExtra("user_photo_url", user.photoUrl ?: "drawable://ic_default_user")
+                            putExtra("user", user)
                         }
                     } else {
                         // User is not logged in, go to MainActivity (login screen)
