@@ -74,6 +74,8 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
         achievementText = findViewById(R.id.achievementText)
         achievementBadge = findViewById(R.id.achievementBadge)
         logText = findViewById(R.id.logText)
+        logText.setBackgroundColor(Color.BLACK)
+        logText.setTextColor(Color.WHITE)
         theoryFootnote = findViewById(R.id.theoryFootnote)
         copyLogButton = findViewById(R.id.copyLogButton)
 
