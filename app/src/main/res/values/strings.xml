@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Playground</string>
+    <string name="learn_android_topics">Learn Android Topics</string>
+    <string name="activity_lifecycle">Activity Lifecycle</string>
+
+</resources>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Activity Lifecycle - Android Guide</title>
+        <style>
+            body {
+              font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+              background-color: #f4f6f8;
+              color: #333;
+              line-height: 1.6;
+              padding: 20px;
+            }
+
+            h1 {
+              color: #2c3e50;
+              text-align: center;
+            }
+
+            .section-title {
+              margin-top: 30px;
+              font-size: 1.3rem;
+              color: #2c3e50;
+              border-left: 4px solid #2980b9;
+              padding-left: 10px;
+              margin-bottom: 10px;
+            }
+
+            ul {
+              list-style-type: disc;
+              margin-left: 20px;
+            }
+
+            code {
+              background-color: #ecf0f1;
+              padding: 2px 6px;
+              border-radius: 4px;
+              font-family: monospace;
+            }
+
+            .note {
+              background-color: #dff9fb;
+              padding: 10px;
+              border-left: 5px solid #00a8ff;
+              margin: 10px 0;
+            }
+
+            .table-container {
+              overflow-x: auto;
+              margin-top: 20px;
+              border-radius: 8px;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .lifecycle-table {
+              width: 100%;
+              min-width: 600px;
+              border-collapse: collapse;
+              background: #fff;
+              border: 1px solid #ddd;
+            }
+
+            .lifecycle-table th,
+            .lifecycle-table td {
+              padding: 10px;
+              border: 1px solid #ddd;
+              text-align: left;
+              font-size: 14px;
+            }
+
+            .lifecycle-table th {
+              background-color: #3498db;
+              color: white;
+            }
+
+            @media (max-width: 600px) {
+              body {
+                padding: 10px;
+              }
+
+              h1 {
+                font-size: 1.5rem;
+              }
+
+              .section-title {
+                font-size: 1.1rem;
+              }
+
+              .lifecycle-table th,
+              .lifecycle-table td {
+                font-size: 13px;
+              }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>📱 Android Activity Lifecycle Guide</h1>
+        <div class="section-title">🚶 A Day in Your Life: An Analogy</div>
+        <p>
+            Imagine your day as an Android Activity. 🧠
+            You <strong>wake up</strong> (<code>onCreate()</code>), get ready (<code>onStart()</code>), and head out to work (<code>onResume()</code>)—you’re now fully active and interacting with the world.
+            Then you take a lunch break (<code>onPause()</code>), step out for an errand (<code>onStop()</code>), and come back to continue your work (<code>onRestart()</code> → <code>onStart()</code> → <code>onResume()</code>).
+            At the end of the day, you sleep or your day ends (<code>onDestroy()</code>).
+
+            Understanding an Activity’s lifecycle is like understanding your own routine—when to prepare, act, rest, and clean up.
+        </p>
+
+        <div class="section-title">🔄 What is Activity Lifecycle?</div>
+        <p>The activity lifecycle represents the different states an Android activity goes through from its creation to destruction. Understanding these stages helps developers manage UI state, optimize memory, and handle background tasks properly.</p>
+        <div class="section-title">🔬 Deep Dive: Internal Working</div>
+        <p>
+            Behind the scenes, Android's <code>ActivityManager</code> handles lifecycle transitions. Each method is called in response to system events like user actions, configuration changes, or memory constraints.
+        </p>
+        <ul>
+            <li>
+                <strong>Activity Stack:</strong> Android uses a stack-based model (back stack) to manage activities. The most recent one sits on top and gets user focus.
+            </li>
+            <li>
+                <strong>Process & Memory:</strong> The system can kill background activities to free up memory, but recreates them using saved instance states.
+            </li>
+            <li>
+                <strong>Lifecycle Callbacks:</strong> Each callback like <code>onPause()</code> or <code>onStop()</code> is a hook where you should release or restore resources wisely.
+            </li>
+            <li>
+                <strong>SavedInstanceState:</strong> Use the <code>Bundle</code> parameter in <code>onCreate()</code> and <code>onSaveInstanceState()</code> to preserve UI state.
+            </li>
+        </ul>
+        <p>
+            To build robust apps, you must understand not just *when* these methods are called, but *why* and *how* the Android system orchestrates them under the hood.
+        </p>
+
+        <div class="section-title">📌 Lifecycle Methods Explained</div>
+        <ul>
+            <li><code>onCreate()</code> – Called when the activity is first created. Do basic application startup logic here.</li>
+            <li><code>onStart()</code> – Called just before the activity becomes visible.</li>
+            <li><code>onResume()</code> – Called just before the activity starts interacting with the user.</li>
+            <li><code>onPause()</code> – Called when the system is about to start resuming another activity.</li>
+            <li><code>onStop()</code> – Called when the activity is no longer visible to the user.</li>
+            <li><code>onRestart()</code> – Called after your activity has been stopped, prior to it being started again.</li>
+            <li><code>onDestroy()</code> – Called before the activity is destroyed.</li>
+        </ul>
+
+        <div class="section-title">⚙️ Lifecycle Summary Table</div>
+
+        <div class="table-container">
+            <table class="lifecycle-table">
+                <thead>
+                    <tr>
+                        <th>Lifecycle Method</th>
+                        <th>Called When?</th>
+                        <th>Best Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>onCreate()</b></td>
+                        <td>First time the activity is created</td>
+                        <td>One-time setup (UI, binding)</td>
+                    </tr>
+                    <tr>
+                        <td><b>onStart()</b></td>
+                        <td>Activity becomes visible (every time)</td>
+                        <td>Restart animations, listeners</td>
+                    </tr>
+                    <tr>
+                        <td><b>onResume()</b></td>
+                        <td>Activity comes to foreground (interactive)</td>
+                        <td>Resume input, tracking</td>
+                    </tr>
+                    <tr>
+                        <td><b>onPause()</b></td>
+                        <td>Activity loses focus (partially visible)</td>
+                        <td>Pause updates, animations</td>
+                    </tr>
+                    <tr>
+                        <td><b>onStop()</b></td>
+                        <td>Activity is no longer visible</td>
+                        <td>Release heavy resources</td>
+                    </tr>
+                    <tr>
+                        <td><b>onRestart()</b></td>
+                        <td>Activity is coming back from background</td>
+                        <td>Prep for restart</td>
+                    </tr>
+                    <tr>
+                        <td><b>onDestroy()</b></td>
+                        <td>Activity is finishing or system kills it</td>
+                        <td>Final cleanup</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title">🧠 Pro Tip</div>
+        <div class="note">
+            Use <code>ViewModel</code> to survive configuration changes like screen rotation. Lifecycle-aware components (LiveData, LifecycleObserver) help manage state efficiently.
+        </div>
+
+        <div class="section-title">📚 Learn More</div>
+        <ul>
+            <li><a href="https://developer.android.com/guide/components/activities/activity-lifecycle" target="_blank">Official Android Lifecycle Docs</a></li>
+            <li><a href="https://developer.android.com/topic/libraries/architecture/lifecycle" target="_blank">Android Architecture Lifecycle Components</a></li>
+        </ul>
+    </body>
+</html>
