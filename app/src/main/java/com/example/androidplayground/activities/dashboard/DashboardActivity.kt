@@ -248,6 +248,11 @@ class DashboardActivity : AppCompatActivity() {
                 title = "Context",
                 description = "Understand the fundamental concept of Context in Android",
                 iconResId = R.drawable.ic_context
+            ),
+            AndroidTopic(
+                title = "Four Pillars of Android",
+                description = "Learn about the four fundamental components of Android",
+                iconResId = R.drawable.ic_pillars
             )
         )
         topicsAdapter.updateItems(topics.toMutableList())
@@ -271,6 +276,11 @@ class DashboardActivity : AppCompatActivity() {
                 "Context" -> {
                     putExtra(TheoryActivity.EXTRA_HTML_RESOURCE, R.raw.context_theory)
                     putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.interactive.context.ContextInteractiveActivity")
+                    putExtra(TheoryActivity.EXTRA_SHOW_DIAGRAM, false)
+                }
+                "Four Pillars of Android" -> {
+                    putExtra(TheoryActivity.EXTRA_HTML_RESOURCE, R.raw.pillars_theory)
+                    putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.pillars.PillarsInteractiveActivity")
                     putExtra(TheoryActivity.EXTRA_SHOW_DIAGRAM, false)
                 }
             }

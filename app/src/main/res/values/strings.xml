@@ -3,6 +3,63 @@
     <string name="app_name">Android Playground</string>
     <string name="learn_android_topics">Learn Android Topics</string>
     <string name="activity_lifecycle">Activity Lifecycle</string>
+    <string name="text_interactive_title">Interactive Learning</string>
+    <string name="context_interactive_title">Context Interactive</string>
+    <string name="pillars_interactive_title">Android Pillars Interactive</string>
+    <string name="pillars_scene_title">Android Pillars Scene</string>
+    
+    <!-- Fragment Lifecycle -->
     <string name="fragment_lifecycle">Fragment Lifecycle</string>
-    <string name="context">Context</string>
+    
+    <!-- Pillars Activities -->
+    <string name="pillars_activities_title">Activities</string>
+    <string name="pillars_activities_idle">Idle</string>
+    <string name="pillars_activities_open_scene">Open Scene</string>
+    <string name="pillars_activities_flip_screen">Flip Screen</string>
+    <string name="pillars_activities_active">Active</string>
+    
+    <!-- Pillars Services -->
+    <string name="pillars_services_title">Services</string>
+    <string name="pillars_services_idle">Idle</string>
+    <string name="pillars_services_start_task">Start Task</string>
+    <string name="pillars_services_stop_task">Stop Task</string>
+    <string name="pillars_services_running">Running</string>
+    
+    <!-- Pillars Receivers -->
+    <string name="pillars_receivers_title">Broadcast Receivers</string>
+    <string name="pillars_receivers_info">Broadcast Receiver Information</string>
+    <string name="pillars_receivers_idle">Idle</string>
+    <string name="pillars_receivers_trigger_alert">Trigger Alert</string>
+    <string name="pillars_receivers_toggle_listener">Register Broadcast</string>
+    <string name="pillars_receivers_active">Active</string>
+    <string name="pillars_receivers_unregister_broadcast">Unregister Broadcast</string>
+    
+    <!-- Pillars Providers -->
+    <string name="pillars_providers_title">Content Providers</string>
+    <string name="pillars_providers_info">Content Provider Information</string>
+    <string name="pillars_provider_not_accessed">Not accessed</string>
+    <string name="pillars_providers_add_item">Add Item</string>
+    <string name="pillars_providers_import_contacts">Import Contacts</string>
+    <string name="pillars_providers_view_list">View List</string>
+    <string name="pillars_providers_erase_all">Erase All</string>
+    <string name="pillars_provider_accessed">Accessed</string>
+    
+    <!-- Pillars Log -->
+    <string name="pillars_log_title">Log</string>
+    <string name="pillars_reset">Reset</string>
+    <string name="pillars_copy_log">Copy Log</string>
+    
+    <!-- Pillars Scene -->
+    <string name="pillars_scene_welcome">Welcome to Android Pillars Scene</string>
+    <string name="pillars_scene_description">This scene demonstrates the interaction between Android components</string>
+    <string name="pillars_scene_created">Scene created</string>
+    <string name="pillars_scene_started">Scene started</string>
+    <string name="pillars_scene_resumed">Scene resumed</string>
+    <string name="pillars_scene_paused">Scene paused</string>
+    <string name="pillars_scene_stopped">Scene stopped</string>
+    <string name="pillars_scene_destroyed">Scene destroyed</string>
+    
+    <!-- Topic -->
+    <string name="topic_icon">Topic Icon</string>
+
 </resources>

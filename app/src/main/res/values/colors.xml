@@ -44,4 +44,18 @@
     <!-- New colors for success and error -->
     <color name="success">#4CAF50</color>
     <color name="error">#F44336</color>
+
+    <!-- Pillars Activity Colors -->
+    <color name="pillars_activity">#2196F3</color>
+    <color name="pillars_service">#4CAF50</color>
+    <color name="pillars_receiver">#FF9800</color>
+    <color name="pillars_provider">#9C27B0</color>
+    <color name="pillars_success">#4CAF50</color>
+    <color name="pillars_error">#F44336</color>
+
+    <!-- Pillars Colors -->
+    <color name="pillars_activities">#2196F3</color>
+    <color name="pillars_services">#4CAF50</color>
+    <color name="pillars_receivers">#FF9800</color>
+    <color name="pillars_providers">#9C27B0</color>
 </resources>
