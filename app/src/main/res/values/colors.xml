@@ -85,5 +85,4 @@
     <color name="intent_status_sent">#2196F3</color>
     <color name="intent_status_received">#4CAF50</color>
     <color name="intent_log_error">#F44336</color>
-    <color name="intent_views_layouts">#9C27B0</color>
 </resources>

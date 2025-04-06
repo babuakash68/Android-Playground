@@ -61,7 +61,6 @@
     
     <!-- Intent -->
     <string name="intent_title">Intents</string>
-    <string name="intent_theory_title">Intent Theory</string>
     <string name="intent_interactive_title">Intent Interactive</string>
     <string name="intent_explicit_title">Explicit Intent</string>
     <string name="intent_implicit_title">Implicit Intent</string>
@@ -180,9 +179,5 @@
     <string name="intent_log_service">Service started via Intent - Running silently</string>
     <string name="intent_topic_icon_description">Topic Icon</string>
     <string name="intent_topic_expand_description">Expand Topic</string>
-
-    <string name="intent_views_layouts_title">Views and Layouts</string>
-    <string name="intent_views_layouts_description">Build user interfaces with Android components</string>
-    <string name="intent_views_layouts_theory">Android UI is built using a hierarchy of View and ViewGroup objects. Views are UI components like buttons and text fields, while ViewGroups are invisible containers that define how child views are laid out. Common layouts include LinearLayout, ConstraintLayout, and RelativeLayout. Understanding these components is essential for creating responsive and efficient user interfaces.</string>
 
 </resources>

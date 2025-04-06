@@ -170,21 +170,10 @@
                             android:textColor="@color/intent_error" />
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnBreakIntent"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:id="@+id/btnBreakIt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
                             android:text="@string/intent_break_it" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnTheory"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="@string/intent_theory_title"
-                            app:icon="@drawable/ic_help"
-                            app:iconGravity="textStart" />
 
                     </LinearLayout>
 

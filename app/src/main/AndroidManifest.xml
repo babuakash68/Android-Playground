@@ -100,11 +100,6 @@
             android:name=".activities.learning.intent.IntentResultActivity"
             android:exported="false"
             android:label="@string/intent_result_activity_title" />
-        <activity
-            android:name=".activities.learning.intent.IntentTheoryActivity"
-            android:exported="false"
-            android:label="@string/intent_theory_title"
-            android:parentActivityName=".activities.learning.intent.IntentInteractiveActivity" />
     </application>
 
 </manifest>

@@ -119,7 +119,7 @@ class IntentInteractiveActivity : AppCompatActivity() {
             sendDataWithIntent()
         }
 
-        binding.btnBreakIntent.setOnClickListener {
+        binding.btnBreakIt.setOnClickListener {
             breakIntent()
         }
 
@@ -133,10 +133,6 @@ class IntentInteractiveActivity : AppCompatActivity() {
 
         binding.btnCopyLog.setOnClickListener {
             copyLogToClipboard()
-        }
-
-        binding.btnTheory.setOnClickListener {
-            startActivity(Intent(this, IntentTheoryActivity::class.java))
         }
     }
 
