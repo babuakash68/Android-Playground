@@ -210,6 +210,14 @@
                             app:icon="@drawable/ic_toast" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLaunchNewScreenApp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Launch New Screen"
+                            app:icon="@drawable/ic_launch" />
+
+                        <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnAccessResourceApp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -244,7 +252,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="8dp"
-                        android:text="Close Activity"
+                        android:text="Close Activitys"
                         app:icon="@drawable/ic_close" />
 
                     <com.google.android.material.button.MaterialButton

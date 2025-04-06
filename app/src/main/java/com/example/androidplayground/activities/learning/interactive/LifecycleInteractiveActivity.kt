@@ -294,7 +294,22 @@ class LifecycleInteractiveActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        logLifecycleEvent("onDestroy", "Screen is destroyed!", Color.RED)
+        
+        // Check if the activity is being destroyed normally or due to an exception
+        val isFinishing = isFinishing
+        val isChangingConfigurations = isChangingConfigurations
+        
+        if (isFinishing && !isChangingConfigurations) {
+            // Normal destruction (user pressed back or called finish())
+            logLifecycleEvent("onDestroy", "Activity destroyed normally", Color.RED)
+        } else if (isChangingConfigurations) {
+            // Configuration change (rotation, etc.)
+            logLifecycleEvent("onDestroy", "Activity destroyed due to configuration change", Color.YELLOW)
+        } else {
+            // Unexpected destruction (system killed, exception, etc.)
+            logLifecycleEvent("EXCEPTION", "Activity context destroyed unexpectedly!", Color.RED)
+            logLifecycleEvent("EXCEPTION", "This is not a normal lifecycle event", Color.RED)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
