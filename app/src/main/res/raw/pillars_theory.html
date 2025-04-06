@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Four Pillars of Android</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f4f4f9;
+                margin: 0;
+                padding: 20px;
+                line-height: 1.6;
+                color: #333;
+            }
+            .section-title {
+                font-size: 24px;
+                margin-top: 30px;
+                color: #2c3e50;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 5px;
+            }
+            blockquote {
+                background: #e8f4fd;
+                border-left: 5px solid #3498db;
+                margin: 20px 0;
+                padding: 10px 20px;
+                font-style: italic;
+            }
+            ul {
+                list-style-type: square;
+                padding-left: 20px;
+            }
+            .note {
+                background-color: #fff3cd;
+                padding: 10px;
+                border-left: 5px solid #ffc107;
+                margin: 20px 0;
+            }
+            a {
+                color: #2980b9;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>📱 Four Pillars of Android</h1>
+
+        <div class="section-title">📖 Introduction</div>
+        <p>
+            Android applications are built upon four essential components known as the <strong>Four Pillars of Android</strong>. Each pillar plays a unique role in the overall structure and behavior of an app, enabling it to respond to user interactions, run tasks in the background, communicate with the system, and share data efficiently.
+        </p>
+        <p>
+            Understanding these four pillars is crucial for any Android developer, as they form the foundation for building robust, responsive, and scalable applications. These pillars are:
+        </p>
+        <ul>
+            <li><strong>Activities:</strong> Handle the user interface and user interactions.</li>
+            <li><strong>Services:</strong> Manage background tasks without a user interface.</li>
+            <li><strong>Broadcast Receivers:</strong> Respond to system-wide broadcast announcements.</li>
+            <li><strong>Content Providers:</strong> Share data between applications securely.</li>
+        </ul>
+        <p>
+            Mastering these components helps in crafting seamless user experiences, optimizing resource management, and building applications that adhere to Android's architecture standards.
+        </p>
+
+        <!-- Activity -->
+        <div class="section-title">🏛️ Android Pillar: Activity</div>
+        <blockquote>
+            Think of an Activity as a room in your app's mansion — users enter, interact, and leave. It's the heart of user interaction!
+        </blockquote>
+        <p>
+            Activities are the entry point for user interaction. They represent a single screen with a UI, often hosting fragments or handling user input directly.
+        </p>
+        <div class="section-title">🔄 Activity Lifecycle Breakdown</div>
+        <ul>
+            <li><strong>onCreate():</strong> Called when the activity is first created. Initialize UI here.</li>
+            <li><strong>onStart():</strong> Activity becomes visible to the user.</li>
+            <li><strong>onResume():</strong> Activity comes to the foreground (interactive).</li>
+            <li><strong>onPause():</strong> Another activity is coming in front.</li>
+            <li><strong>onStop():</strong> Activity is no longer visible.</li>
+            <li><strong>onDestroy():</strong> Activity is finishing or being destroyed.</li>
+            <li><strong>onRestart():</strong> Activity is being restarted after being stopped.</li>
+        </ul>
+        <div class="note">
+            🔍 <strong>Pro Tip:</strong> Always save user data in <code>onPause()</code> and release heavy resources in <code>onStop()</code> to keep your app smooth.
+        </div>
+        <div class="section-title">📚 Learn More</div>
+        <ul>
+            <li><a href="https://developer.android.com/guide/components/activities/intro-activities" target="_blank">Official Activity Docs</a></li>
+            <li><a href="https://developer.android.com/reference/android/app/Activity" target="_blank">Activity API Reference</a></li>
+        </ul>
+        <p><em>We will learn more about Activities with lifecycle-aware components, shared ViewModels, and advanced use-cases in upcoming sections!</em></p>
+
+        <!-- Service -->
+        <div class="section-title">🛠️ Android Pillar: Service</div>
+        <blockquote>
+            Services are like behind-the-scenes crew in a theater show — not seen, but critical to the performance!
+        </blockquote>
+        <p>
+            A Service is an application component that can perform long-running operations in the background without a UI.
+        </p>
+        <ul>
+            <li><strong>Started Service:</strong> Starts with <code>startService()</code> and continues running until stopped.</li>
+            <li><strong>Bound Service:</strong> Bound to an activity, communicates via <code>IBinder</code>.</li>
+            <li><strong>Foreground Service:</strong> Shows a notification to indicate it’s running (e.g., music player).</li>
+        </ul>
+        <div class="note">
+            ⚠️ <strong>Note:</strong> From Android 8.0 (API 26), background services have limitations. Use WorkManager or foreground services.
+        </div>
+        <p><em>We’ll dive deeper into Services with WorkManager, JobIntentService, and best practices soon!</em></p>
+
+        <!-- Broadcast Receiver -->
+        <div class="section-title">📡 Android Pillar: Broadcast Receiver</div>
+        <blockquote>
+            Broadcast Receivers are Android’s town criers — delivering system-wide messages to interested apps!
+        </blockquote>
+        <p>
+            Broadcast receivers respond to system-wide events like battery low, screen on, boot completed, etc.
+        </p>
+        <ul>
+            <li>Use <code>registerReceiver()</code> for dynamic registration in code.</li>
+            <li>Use manifest for static registration, but with limitations from Android 8.0 onward.</li>
+        </ul>
+        <div class="note">
+            📢 <strong>Example:</strong> Your app can listen for a "Power Connected" broadcast to start syncing data.
+        </div>
+        <p><em>We’ll explore BroadcastReceiver types, best practices, and limitations in upcoming lessons!</em></p>
+
+        <!-- Content Provider -->
+        <div class="section-title">📂 Android Pillar: Content Provider</div>
+        <blockquote>
+            Think of Content Providers as Android’s librarians — organizing and sharing structured data across apps.
+        </blockquote>
+        <p>
+            Content Providers manage access to a structured set of data, often used to share data between different apps.
+        </p>
+        <ul>
+            <li>Provides methods for <code>CRUD</code>: Create, Read, Update, Delete via URIs.</li>
+            <li>Uses <code>ContentResolver</code> to query or modify data.</li>
+            <li>Used in apps like Contacts, Calendar, etc.</li>
+        </ul>
+        <div class="note">
+            🔐 <strong>Security:</strong> Define permissions and access modes carefully to protect shared data.
+        </div>
+        <p><em>We’ll dive deeper into URI matching, custom content providers, and inter-app data access in detail soon!</em></p>
+
+    </body>
+</html>

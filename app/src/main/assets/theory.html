@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 16px;
+        }
+        h1 {
+            color: #2196F3;
+            margin-bottom: 24px;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        .pillar {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .pillar h3 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+        .pillar p {
+            margin-bottom: 8px;
+        }
+        .example {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 8px 16px;
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Four Pillars of Android</h1>
+    <p>Android's architecture is built on four fundamental components, known as the Four Pillars. These components are the building blocks of every Android application, each serving a specific purpose in the app's functionality.</p>
+
+    <div class="pillar">
+        <h3>1. Activities</h3>
+        <p>Activities represent the user interface of your app. Each screen in your app is typically a separate Activity. Activities are the entry points for user interaction and are managed in a stack known as the back stack.</p>
+        <div class="example">
+            <p>Example: A login screen, a home screen, or a settings screen are all separate Activities.</p>
+        </div>
+    </div>
+
+    <div class="pillar">
+        <h3>2. Services</h3>
+        <p>Services are components that run in the background to perform long-running operations without a user interface. They can continue running even when the user switches to another app.</p>
+        <div class="example">
+            <p>Example: Playing music in the background, downloading files, or syncing data with a server.</p>
+        </div>
+    </div>
+
+    <div class="pillar">
+        <h3>3. Broadcast Receivers</h3>
+        <p>Broadcast Receivers respond to system-wide events and custom broadcasts. They allow your app to respond to events that happen outside your app's normal flow.</p>
+        <div class="example">
+            <p>Example: Responding to battery low events, network connectivity changes, or custom events from other apps.</p>
+        </div>
+    </div>
+
+    <div class="pillar">
+        <h3>4. Content Providers</h3>
+        <p>Content Providers manage shared app data and allow other apps to access it. They provide a standard interface for data access and sharing between applications.</p>
+        <div class="example">
+            <p>Example: Accessing the device's contacts, calendar, or media files, or sharing your app's data with other apps.</p>
+        </div>
+    </div>
+
+    <h2>How They Work Together</h2>
+    <p>These four components work together to create a complete Android application:</p>
+    <ul>
+        <li>Activities provide the user interface and handle user interactions</li>
+        <li>Services handle background tasks and long-running operations</li>
+        <li>Broadcast Receivers respond to system events and custom broadcasts</li>
+        <li>Content Providers manage and share data between apps</li>
+    </ul>
+
+    <h2>Best Practices</h2>
+    <ul>
+        <li>Keep Activities focused on UI and user interaction</li>
+        <li>Use Services for background tasks that don't need user interaction</li>
+        <li>Register Broadcast Receivers dynamically when possible</li>
+        <li>Implement Content Providers when you need to share data with other apps</li>
+    </ul>
+</body>
+</html> 

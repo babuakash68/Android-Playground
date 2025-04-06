@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 16px;
+            margin: 0;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 16px;
+            padding: 16px;
+            border: 1px solid #E0E0E0;
+        }
+        h2 {
+            color: #1976D2;
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            border-bottom: 2px solid #1976D2;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2196F3;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            background-color: #E3F2FD;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        p {
+            margin: 8px 0;
+            color: #424242;
+            padding: 4px 0;
+        }
+        .arrow {
+            color: #2196F3;
+            margin-right: 4px;
+            font-weight: bold;
+        }
+        .bullet {
+            color: #2196F3;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        .section {
+            background-color: #F5F5F5;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 8px 0;
+        }
+        .highlight {
+            background-color: #E3F2FD;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>1. Content Provider Structure</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> <span class="highlight">PillarsContentProvider</span> extends ContentProvider</p>
+            <p><span class="bullet">•</span> Uses an in-memory list to store contacts</p>
+            <p><span class="bullet">•</span> Implements CRUD operations (Create, Read, Update, Delete)</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Data Access Flow</h2>
+        
+        <h3>Query Operation</h3>
+        <div class="section">
+            <p><span class="arrow">→</span> When you click "View List", the app calls <span class="highlight">contentResolver.query()</span></p>
+            <p><span class="arrow">→</span> <span class="highlight">PillarsContentProvider.query()</span> is invoked</p>
+            <p><span class="arrow">→</span> Returns a Cursor with all contacts</p>
+            <p><span class="arrow">→</span> Activity processes the Cursor to display contacts</p>
+        </div>
+
+        <h3>Insert Operation</h3>
+        <div class="section">
+            <p><span class="arrow">→</span> When you click "Add Contact", the app calls <span class="highlight">contentResolver.insert()</span></p>
+            <p><span class="arrow">→</span> <span class="highlight">PillarsContentProvider.insert()</span> is invoked</p>
+            <p><span class="arrow">→</span> New contact is added to the in-memory list</p>
+        </div>
+
+        <h3>Delete Operation</h3>
+        <div class="section">
+            <p><span class="arrow">→</span> When you click "Erase All", the app calls <span class="highlight">contentResolver.delete()</span></p>
+            <p><span class="arrow">→</span> <span class="highlight">PillarsContentProvider.delete()</span> is invoked</p>
+            <p><span class="arrow">→</span> All contacts are removed from the in-memory list</p>
+        </div>
+
+        <h3>Update Operation</h3>
+        <div class="section">
+            <p><span class="arrow">→</span> When you edit a contact, the app calls <span class="highlight">contentResolver.update()</span></p>
+            <p><span class="arrow">→</span> <span class="highlight">PillarsContentProvider.update()</span> is invoked</p>
+            <p><span class="arrow">→</span> Contact details are updated in the in-memory list</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Device Contacts Access</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> App requests <span class="highlight">READ_CONTACTS</span> permission</p>
+            <p><span class="bullet">•</span> Uses ContentResolver to query device contacts</p>
+            <p><span class="bullet">•</span> Imports contacts into our Content Provider</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Data Persistence</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> All data is stored in memory only</p>
+            <p><span class="bullet">•</span> Data is cleared when the app is closed</p>
+            <p><span class="bullet">•</span> No data is shared with other applications</p>
+        </div>
+    </div>
+</body>
+</html> 

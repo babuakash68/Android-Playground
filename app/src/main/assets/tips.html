@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 16px;
+        }
+        h1 {
+            color: #2196F3;
+            margin-bottom: 24px;
+        }
+        .tip {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .tip h3 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+        .tip p {
+            margin-bottom: 8px;
+        }
+        .code {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 8px 16px;
+            margin: 8px 0;
+            font-family: monospace;
+        }
+        .warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #FF9800;
+            padding: 8px 16px;
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pro Tips for Android Development</h1>
+
+    <div class="tip">
+        <h3>Activity Tips</h3>
+        <ul>
+            <li>Always handle configuration changes properly</li>
+            <li>Use ViewModel to preserve UI state</li>
+            <li>Implement proper back stack management</li>
+            <li>Handle activity results with ActivityResultLauncher</li>
+        </ul>
+        <div class="code">
+            <p>// Using ActivityResultLauncher</p>
+            <p>private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -></p>
+            <p>    if (result.resultCode == Activity.RESULT_OK) {</p>
+            <p>        // Handle result</p>
+            <p>    }</p>
+            <p>}</p>
+        </div>
+    </div>
+
+    <div class="tip">
+        <h3>Service Tips</h3>
+        <ul>
+            <li>Use WorkManager for background tasks</li>
+            <li>Implement proper service lifecycle management</li>
+            <li>Consider using Foreground Service for important tasks</li>
+            <li>Handle service binding correctly</li>
+        </ul>
+        <div class="warning">
+            <p>Warning: Avoid running long operations on the main thread in Services</p>
+        </div>
+    </div>
+
+    <div class="tip">
+        <h3>Broadcast Receiver Tips</h3>
+        <ul>
+            <li>Register receivers dynamically when possible</li>
+            <li>Use LocalBroadcastManager for app-internal broadcasts</li>
+            <li>Handle receiver registration in the correct lifecycle</li>
+            <li>Consider using WorkManager for periodic tasks</li>
+        </ul>
+        <div class="code">
+            <p>// Dynamic receiver registration</p>
+            <p>private val receiver = object : BroadcastReceiver() {</p>
+            <p>    override fun onReceive(context: Context, intent: Intent) {</p>
+            <p>        // Handle broadcast</p>
+            <p>    }</p>
+            <p>}</p>
+            <p>registerReceiver(receiver, IntentFilter("ACTION_CUSTOM"))</p>
+        </div>
+    </div>
+
+    <div class="tip">
+        <h3>Content Provider Tips</h3>
+        <ul>
+            <li>Use Room for local database operations</li>
+            <li>Implement proper URI patterns</li>
+            <li>Handle data changes with ContentObserver</li>
+            <li>Use CursorLoader for large datasets</li>
+        </ul>
+        <div class="code">
+            <p>// Using ContentResolver</p>
+            <p>val cursor = contentResolver.query(</p>
+            <p>    Uri.parse("content://authority/table"),</p>
+            <p>    null, null, null, null</p>
+            <p>)</p>
+        </div>
+    </div>
+
+    <div class="tip">
+        <h3>General Best Practices</h3>
+        <ul>
+            <li>Follow Material Design guidelines</li>
+            <li>Implement proper error handling</li>
+            <li>Use Kotlin coroutines for asynchronous operations</li>
+            <li>Follow the principle of least privilege</li>
+            <li>Implement proper security measures</li>
+        </ul>
+        <div class="warning">
+            <p>Remember to test your app thoroughly on different Android versions and devices</p>
+        </div>
+    </div>
+</body>
+</html> 

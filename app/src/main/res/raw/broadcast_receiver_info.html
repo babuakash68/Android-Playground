@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 16px;
+            background-color: #f5f5f5;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 16px;
+            padding: 16px;
+        }
+        h1 {
+            color: #1976D2;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2196F3;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .section {
+            margin-bottom: 16px;
+        }
+        .bullet {
+            color: #2196F3;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #E3F2FD;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .code {
+            background-color: #f5f5f5;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 8px 0;
+            white-space: pre-wrap;
+        }
+        .flow {
+            margin-left: 16px;
+        }
+        .arrow {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Broadcast Receiver Information</h1>
+    
+    <div class="card">
+        <h2>1. Register Broadcast Receiver</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> When you click the <span class="highlight">Register Broadcast</span> button, the following happens:</p>
+            <div class="flow">
+                <p><span class="arrow">→</span> The app creates an <span class="highlight">IntentFilter</span> with power connection actions:</p>
+                <p class="code">addAction(Intent.ACTION_POWER_CONNECTED)</p>
+                <p class="code">addAction(Intent.ACTION_POWER_DISCONNECTED)</p>
+
+                <p><span class="arrow">→</span> The app calls <span class="highlight">registerReceiver()</span> with:</p>
+                <p class="code">registerReceiver(customReceiver, filter)</p>
+
+                <p><span class="arrow">→</span> The <span class="highlight">customReceiver</span> is an instance of <span class="highlight">BroadcastReceiver</span> that:</p>
+                <p class="code">override fun onReceive(context: Context, intent: Intent) {</p>
+                <p class="code">    when (intent.action) {</p>
+                <p class="code">        Intent.ACTION_POWER_CONNECTED -> {</p>
+                <p class="code">            logAction("Receiver", "Power connected broadcast received", true)</p>
+                <p class="code">            Toast.makeText(context, "Power connected!", Toast.LENGTH_SHORT).show()</p>
+                <p class="code">        }</p>
+                <p class="code">        Intent.ACTION_POWER_DISCONNECTED -> {</p>
+                <p class="code">            logAction("Receiver", "Power disconnected broadcast received", true)</p>
+                <p class="code">            Toast.makeText(context, "Power disconnected!", Toast.LENGTH_SHORT).show()</p>
+                <p class="code">        }</p>
+                <p class="code">        else -> {</p>
+                <p class="code">            val message = intent.getStringExtra("message") ?: "Custom broadcast received"</p>
+                <p class="code">            logAction("Receiver", "Received broadcast: $message", true)</p>
+                <p class="code">            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()</p>
+                <p class="code">        }</p>
+                <p class="code">    }</p>
+                <p class="code">}</p>
+
+                <p><span class="arrow">→</span> The app sets <span class="highlight">isReceiverRegistered = true</span></p>
+                <p><span class="arrow">→</span> The UI updates to show <span class="highlight">Status: Active</span></p>
+                <p><span class="arrow">→</span> The button text changes to <span class="highlight">Unregister Broadcast</span></p>
+                <p><span class="arrow">→</span> A log entry is added: <span class="highlight">"Listener registered for power connection events"</span></p>
+                <p><span class="arrow">→</span> A toast message appears: <span class="highlight">"BroadcastReceiver registered for power events"</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Unregister Broadcast Receiver</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> When you click the <span class="highlight">Unregister Broadcast</span> button, the following happens:</p>
+            <div class="flow">
+                <p><span class="arrow">→</span> The app calls <span class="highlight">unregisterReceiver()</span> with:</p>
+                <p class="code">unregisterReceiver(customReceiver)</p>
+
+                <p><span class="arrow">→</span> The app sets <span class="highlight">isReceiverRegistered = false</span></p>
+                <p><span class="arrow">→</span> The UI updates to show <span class="highlight">Status: Idle</span></p>
+                <p><span class="arrow">→</span> The button text changes to <span class="highlight">Register Broadcast</span></p>
+                <p><span class="arrow">→</span> A log entry is added: <span class="highlight">"Listener unregistered"</span></p>
+                <p><span class="arrow">→</span> A toast message appears: <span class="highlight">"BroadcastReceiver unregistered"</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Trigger Alert</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> When you click the <span class="highlight">Trigger Alert</span> button, the following happens:</p>
+            <div class="flow">
+                <p><span class="arrow">→</span> The app checks if a receiver is registered</p>
+                <p><span class="arrow">→</span> If registered, the app creates a custom <span class="highlight">Intent</span> with:</p>
+                <p class="code">val intent = Intent("com.example.androidplayground.CUSTOM_ACTION").apply {</p>
+                <p class="code">    putExtra("message", "Hello from PillarsInteractiveActivity!")</p>
+                <p class="code">}</p>
+
+                <p><span class="arrow">→</span> The app sends the broadcast with:</p>
+                <p class="code">sendBroadcast(intent)</p>
+
+                <p><span class="arrow">→</span> The registered receiver's <span class="highlight">onReceive()</span> method is called</p>
+                <p><span class="arrow">→</span> The receiver logs: <span class="highlight">"Received broadcast: Hello from PillarsInteractiveActivity!"</span></p>
+                <p><span class="arrow">→</span> A toast message appears: <span class="highlight">"Hello from PillarsInteractiveActivity!"</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Power Connection Events</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> When the device's power connection state changes, the following happens:</p>
+            <div class="flow">
+                <p><span class="arrow">→</span> The system broadcasts either <span class="highlight">ACTION_POWER_CONNECTED</span> or <span class="highlight">ACTION_POWER_DISCONNECTED</span></p>
+                <p><span class="arrow">→</span> If our receiver is registered, <span class="highlight">customReceiver.onReceive()</span> is called</p>
+                <p><span class="arrow">→</span> The receiver logs: <span class="highlight">"Power connected/disconnected broadcast received"</span></p>
+                <p><span class="arrow">→</span> A toast message appears: <span class="highlight">"Power connected/disconnected!"</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>5. Activity Lifecycle Integration</h2>
+        <div class="section">
+            <p><span class="bullet">•</span> The BroadcastReceiver state is preserved during activity recreation:</p>
+            <div class="flow">
+                <p><span class="arrow">→</span> In <span class="highlight">onSaveInstanceState()</span>, the app saves:</p>
+                <p class="code">outState.putBoolean("isReceiverRegistered", isReceiverRegistered)</p>
+
+                <p><span class="arrow">→</span> In <span class="highlight">onCreate()</span>, the app restores:</p>
+                <p class="code">if (savedInstanceState != null && savedInstanceState.getBoolean("isReceiverRegistered", false)) {</p>
+                <p class="code">    registerReceiver()</p>
+                <p class="code">    logAction("Receiver", "Receiver state restored after activity recreation", true)</p>
+                <p class="code">}</p>
+
+                <p><span class="arrow">→</span> In <span class="highlight">onDestroy()</span>, the app unregisters if the activity is finishing:</p>
+                <p class="code">if (isFinishing) {</p>
+                <p class="code">    if (isReceiverRegistered) unregisterReceiver(customReceiver)</p>
+                <p class="code">}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
