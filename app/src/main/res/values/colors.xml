@@ -58,4 +58,32 @@
     <color name="pillars_services">#4CAF50</color>
     <color name="pillars_receivers">#FF9800</color>
     <color name="pillars_providers">#9C27B0</color>
+    
+    <!-- Intent Interactive Colors -->
+    <color name="intent_data">#9C27B0</color>
+    <color name="intent_tweaker">#607D8B</color>
+    <color name="intent_error">#F44336</color>
+    <color name="intent_status_resolved">#9C27B0</color>
+    <color name="intent_status_error">#F44336</color>
+    <color name="intent_log_bg">#212121</color>
+    <color name="intent_log_text">#FFFFFF</color>
+    <color name="intent_log_explicit">#2196F3</color>
+    <color name="intent_log_implicit">#4CAF50</color>
+    <color name="intent_log_data">#9C27B0</color>
+    <color name="intent_log_service">#FF9800</color>
+    <color name="intent_log_broadcast">#FF5722</color>
+    <color name="intent_log_flag">#607D8B</color>
+    <color name="intent_log_lifecycle">#00BCD4</color>
+    <color name="intent_log_achievement">#FFC107</color>
+
+    <!-- Intent Colors -->
+    <color name="intent_explicit">#2196F3</color>
+    <color name="intent_implicit">#4CAF50</color>
+    <color name="intent_service">#FF9800</color>
+    <color name="intent_broadcast">#9C27B0</color>
+    <color name="intent_status_idle">#757575</color>
+    <color name="intent_status_sent">#2196F3</color>
+    <color name="intent_status_received">#4CAF50</color>
+    <color name="intent_log_error">#F44336</color>
+    <color name="intent_views_layouts">#9C27B0</color>
 </resources>

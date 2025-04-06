@@ -253,6 +253,11 @@ class DashboardActivity : AppCompatActivity() {
                 title = "Four Pillars of Android",
                 description = "Learn about the four fundamental components of Android",
                 iconResId = R.drawable.ic_pillars
+            ),
+            AndroidTopic(
+                title = "Intents",
+                description = "Explore the power of Intents in Android communication",
+                iconResId = R.drawable.ic_intent
             )
         )
         topicsAdapter.updateItems(topics.toMutableList())
@@ -281,6 +286,11 @@ class DashboardActivity : AppCompatActivity() {
                 "Four Pillars of Android" -> {
                     putExtra(TheoryActivity.EXTRA_HTML_RESOURCE, R.raw.pillars_theory)
                     putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.pillars.PillarsInteractiveActivity")
+                    putExtra(TheoryActivity.EXTRA_SHOW_DIAGRAM, false)
+                }
+                "Intents" -> {
+                    putExtra(TheoryActivity.EXTRA_HTML_RESOURCE, R.raw.intent_theory)
+                    putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.intent.IntentInteractiveActivity")
                     putExtra(TheoryActivity.EXTRA_SHOW_DIAGRAM, false)
                 }
             }

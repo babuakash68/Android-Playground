@@ -4,7 +4,60 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    
+    <!-- App icon (house) -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M12,2L4,5v6.09c0,5.05 3.41,9.76 8,10.91c4.59,-1.15 8,-5.86 8,-10.91V5L12,2zM13,16h-2v-2h2V16zM13,12h-2V7h2V12z"/>
+        android:fillColor="#000000"
+        android:pathData="M12,3L4,9V21H20V9L12,3z" />
+    
+    <!-- Four pillars -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M6,21V9" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M10,21V9" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M14,21V9" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M18,21V9" />
+    
+    <!-- Pillar bases -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M5,21H7" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M9,21H11" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M13,21H15" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M17,21H19" />
+    
+    <!-- Pillar tops -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M5,9H7" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M9,9H11" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M13,9H15" />
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M17,9H19" />
 </vector> 
