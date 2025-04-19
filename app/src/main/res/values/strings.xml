@@ -15,7 +15,7 @@
     <string name="pillars_activities_title">Activities</string>
     <string name="pillars_activities_idle">Idle</string>
     <string name="pillars_activities_open_scene">Open Scene</string>
-    <string name="pillars_activities_flip_screen">Flip Screen</string>
+    <string name="pillars_activities_flip_screen">Rotate Screen</string>
     <string name="pillars_activities_active">Active</string>
     
     <!-- Pillars Services -->
@@ -59,7 +59,127 @@
     <string name="pillars_scene_stopped">Scene stopped</string>
     <string name="pillars_scene_destroyed">Scene destroyed</string>
     
+    <!-- Intent -->
+    <string name="intent_title">Intents</string>
+    <string name="intent_interactive_title">Intent Interactive</string>
+    <string name="intent_explicit_title">Explicit Intent</string>
+    <string name="intent_implicit_title">Implicit Intent</string>
+    <string name="intent_result_title">Result</string>
+    <string name="intent_share_title">Share Content</string>
+    <string name="intent_open_url_title">Open URL</string>
+    <string name="intent_dial_phone_title">Dial Phone</string>
+    <string name="intent_result_status">Status: %1$s</string>
+    <string name="intent_result_data">Data: %1$s</string>
+    <string name="intent_share_text">Check out this amazing Android app!</string>
+    <string name="intent_url">https://developer.android.com</string>
+    <string name="intent_phone">1234567890</string>
+    <string name="intent_result_activity_title">Intent Result Activity</string>
+    <string name="intent_result_activity_description">This activity demonstrates returning data to the calling activity</string>
+    <string name="intent_result_activity_data">Received data: %1$s</string>
+    <string name="intent_result_activity_no_data">No data received</string>
+    <string name="intent_result_activity_hint">Enter some text to return</string>
+    <string name="intent_result_activity_success">Return Success</string>
+    <string name="intent_result_activity_cancel">Cancel</string>
+    
+    <!-- Enhanced Intent Interactive -->
+    <string name="intent_controls_title">Intent Controls</string>
+    <string name="intent_results_title">Intent Results</string>
+    <string name="intent_log_title">Intent Log</string>
+    <string name="intent_explicit_description">Start an activity and receive a result back</string>
+    <string name="intent_implicit_description">Use system intents to perform common actions</string>
+    <string name="intent_service_title">Service</string>
+    <string name="intent_service_description">Start a foreground service that runs for 5 seconds</string>
+    <string name="intent_service_start">Start Service</string>
+    <string name="intent_broadcast_title">Broadcast Receiver</string>
+    <string name="intent_broadcast_description">Register for power connection events</string>
+    <string name="intent_broadcast_register">Register Broadcast</string>
+    <string name="intent_broadcast_unregister">Unregister Broadcast</string>
+    <string name="intent_broadcast_power_connected">Power connected!</string>
+    <string name="intent_broadcast_power_disconnected">Power disconnected!</string>
+    <string name="intent_status_idle">Status: Idle</string>
+    <string name="intent_status_sent">Status: Intent Sent</string>
+    <string name="intent_status_received">Status: Result Received</string>
+    <string name="intent_result_success">Success</string>
+    <string name="intent_result_cancelled">Cancelled</string>
+    <string name="intent_result_no_data">No data returned</string>
+    <string name="intent_log_reset">Reset Log</string>
+    <string name="intent_log_flag">Flag applied - %1$s</string>
+    <string name="intent_log_error">Error: %1$s</string>
+    <string name="intent_log_lifecycle">Activity %1$s → %2$s</string>
+    <string name="intent_log_achievement">Achievement unlocked: %1$s</string>
+    <string name="intent_achievement_explicit">Explicit Intent Master</string>
+    <string name="intent_achievement_implicit">Implicit Intent Explorer</string>
+    <string name="intent_achievement_data">Data Passing Pro</string>
+    <string name="intent_achievement_service">Service Starter</string>
+    <string name="intent_achievement_broadcast">Broadcast Guru</string>
+    <string name="intent_achievement_flags">Flag Manipulator</string>
+    <string name="intent_achievement_error">Error Handler</string>
+    <string name="intent_achievement_lifecycle">Lifecycle Observer</string>
+    <string name="intent_achievement_complete">Intent Wizard</string>
+    <string name="intent_explicit_button">Start Result Activity</string>
+    <string name="intent_data_title">Data Passing</string>
+    <string name="intent_data_hint">Enter data to send</string>
+    <string name="intent_send_data">Send with Data</string>
+    <string name="intent_start_service">Start Service</string>
+    <string name="intent_send_broadcast">Send Broadcast</string>
+    <string name="intent_tweaker_title">Intent Tweaker</string>
+    <string name="intent_flag_single_top">FLAG_ACTIVITY_SINGLE_TOP</string>
+    <string name="intent_flag_clear_top">FLAG_ACTIVITY_CLEAR_TOP</string>
+    <string name="intent_reset_log">Reset</string>
+    <string name="intent_copy_log">Copy</string>
+    
     <!-- Topic -->
     <string name="topic_icon">Topic Icon</string>
+
+    <!-- Intent Welcome Dialog -->
+    <string name="intent_welcome_title">Welcome to Intent Playground!</string>
+    <string name="intent_welcome_message">Explore different types of Android Intents and see how they work in real-time. This playground demonstrates:</string>
+    <string name="intent_welcome_explicit">• Explicit Intents: Start activities and receive results</string>
+    <string name="intent_welcome_implicit">• Implicit Intents: Share content, open URLs, and dial numbers</string>
+    <string name="intent_welcome_data">• Data Passing: Send and receive data between activities</string>
+    <string name="intent_welcome_service">• Services: Start and interact with background services</string>
+    <string name="intent_welcome_broadcast">• Broadcasts: Send and receive system-wide messages</string>
+    <string name="intent_welcome_tweaker">• Intent Tweaker: Experiment with different intent flags</string>
+    <string name="intent_welcome_error">• Error Playground: See how the system handles invalid intents</string>
+    <string name="intent_welcome_tip">Tip: Watch the log panel to see what happens behind the scenes!</string>
+    <string name="intent_welcome_got_it">Got it!</string>
+    <string name="intent_welcome_show_again">Don\'t show again</string>
+    <string name="intent_welcome_help">Help</string>
+
+    <string name="intent_log_copy">Copy Log</string>
+    <string name="intent_log_copied">Log copied to clipboard</string>
+    <string name="intent_log_explicit_start">Starting explicit intent</string>
+    <string name="intent_log_explicit_result">Received result: %1$s</string>
+    <string name="intent_log_explicit_cancelled">Result cancelled</string>
+    <string name="intent_log_implicit_share">Sharing content</string>
+    <string name="intent_log_implicit_url">Opening URL</string>
+    <string name="intent_log_implicit_phone">Dialing phone number</string>
+    <string name="intent_log_service_start">Starting service</string>
+    <string name="intent_log_broadcast_register">Registered for power events</string>
+    <string name="intent_log_broadcast_unregister">Unregistered from power events</string>
+    <string name="intent_error_no_browser">No browser app found</string>
+    <string name="intent_error_no_dialer">No dialer app found</string>
+    <string name="intent_error_empty_data">Please enter some data to send</string>
+    <string name="intent_error_title">Error Playground</string>
+    <string name="intent_break_it">Break It</string>
+    <string name="intent_lifecycle_title">Lifecycle Monitor</string>
+    <string name="intent_lifecycle_idle">Status: Idle</string>
+    <string name="intent_lifecycle_active">Status: Active</string>
+    <string name="intent_lifecycle_paused">Status: Paused</string>
+    <string name="intent_lifecycle_stopped">Status: Stopped</string>
+    <string name="intent_lifecycle_destroyed">Status: Destroyed</string>
+    <string name="intent_resolution_info">The Intent Resolver searched all apps to pick the appropriate handler!</string>
+    <string name="intent_achievements_title">Achievements</string>
+    <string name="intent_achievements_progress">Intent Wizard: %1$d/%2$d actions tried</string>
+    <string name="intent_revisit_flow">Revisit Flow</string>
+    <string name="intent_log_explicit">Explicit Intent sent - Activity onCreate → onResume</string>
+    <string name="intent_log_implicit">Implicit Intent sent - Resolved to %1$s</string>
+    <string name="intent_log_data">Data passed: %1$s - Received in onCreate!</string>
+    <string name="intent_log_data_sent">Data sent: %1$s</string>
+    <string name="intent_log_service">Service started via Intent - Running silently</string>
+    <string name="intent_topic_icon_description">Topic Icon</string>
+    <string name="intent_topic_expand_description">Expand Topic</string>
+
+    <string name="views_interactive_title">Views and Layouts Playground</string>
 
 </resources>

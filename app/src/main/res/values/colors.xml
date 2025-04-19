@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_100">#E1BEE7</color>
-    <color name="purple_200">#CE93D8</color>
-    <color name="purple_500">#9C27B0</color>
-    <color name="purple_700">#7B1FA2</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -58,4 +58,43 @@
     <color name="pillars_services">#4CAF50</color>
     <color name="pillars_receivers">#FF9800</color>
     <color name="pillars_providers">#9C27B0</color>
+    
+    <!-- Intent Interactive Colors -->
+    <color name="intent_data">#9C27B0</color>
+    <color name="intent_tweaker">#607D8B</color>
+    <color name="intent_error">#F44336</color>
+    <color name="intent_status_resolved">#9C27B0</color>
+    <color name="intent_status_error">#F44336</color>
+    <color name="intent_log_bg">#212121</color>
+    <color name="intent_log_text">#FFFFFF</color>
+    <color name="intent_log_explicit">#2196F3</color>
+    <color name="intent_log_implicit">#4CAF50</color>
+    <color name="intent_log_data">#9C27B0</color>
+    <color name="intent_log_service">#FF9800</color>
+    <color name="intent_log_broadcast">#FF5722</color>
+    <color name="intent_log_flag">#607D8B</color>
+    <color name="intent_log_lifecycle">#00BCD4</color>
+    <color name="intent_log_achievement">#FFC107</color>
+
+    <!-- Intent Colors -->
+    <color name="intent_explicit">#2196F3</color>
+    <color name="intent_implicit">#4CAF50</color>
+    <color name="intent_service">#FF9800</color>
+    <color name="intent_broadcast">#9C27B0</color>
+    <color name="intent_status_idle">#757575</color>
+    <color name="intent_status_sent">#2196F3</color>
+    <color name="intent_status_received">#4CAF50</color>
+    <color name="intent_log_error">#F44336</color>
+
+    <!-- Additional purple colors -->
+    <color name="purple_50">#FFF3E5F5</color>
+    <color name="purple_300">#FFBA68C8</color>
+    <color name="purple_400">#FFAB47BC</color>
+    <color name="purple_600">#FF8E24AA</color>
+    <color name="purple_800">#FF6A1B9A</color>
+    <color name="purple_900">#FF4A148C</color>
+    <color name="purple_A100">#FFEA80FC</color>
+    <color name="purple_A200">#FFE040FB</color>
+    <color name="purple_A400">#FFD500F9</color>
+    <color name="purple_A700">#FFAA00FF</color>
 </resources>

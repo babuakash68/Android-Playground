@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    
+    <!-- Envelope -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M20,4H4C2.9,4 2,4.9 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.9 21.1,4 20,4z" />
+    
+    <!-- Envelope flap -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M20,8L12,13L4,8" />
+    
+    <!-- Data packet -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M16,14H8V16H16V14z" />
+    
+    <!-- Arrow -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M2,12L22,12"
+        android:strokeWidth="2"
+        android:strokeColor="#000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    
+    <!-- Arrow head -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M18,10L22,12L18,14z" />
+</vector> 

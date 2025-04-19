@@ -7,6 +7,7 @@ import com.example.androidplayground.R
 import com.example.androidplayground.activities.learning.ActivityTheoryActivity
 import com.example.androidplayground.activities.learning.FragmentTheoryActivity
 import com.example.androidplayground.activities.learning.TheoryActivity
+import com.example.androidplayground.activities.learning.intent.IntentInteractiveActivity
 import com.example.androidplayground.activities.learning.interactive.LifecycleInteractiveActivity
 import com.example.androidplayground.activities.learning.interactive.context.ContextInteractiveActivity
 import com.example.androidplayground.activities.learning.interactive.fragment.FragmentInteractiveActivity
@@ -43,6 +44,13 @@ class TopicAdapter : RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
             R.drawable.ic_pillars,
             TheoryActivity::class.java,
             ContextInteractiveActivity::class.java
+        ),
+        Topic(
+            "Intents",
+            "Explore how Intents enable communication between Android components",
+            R.drawable.ic_intent,
+            TheoryActivity::class.java,
+            IntentInteractiveActivity::class.java
         )
     )
 

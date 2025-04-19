@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .demo-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .view-demo {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .view-demo:hover {
+            background-color: #f0f0f0;
+        }
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>Views Demo</h1>
+        <p>This demo shows different types of views and their interactions.</p>
+
+        <div class="view-demo">
+            <h2>TextView Demo</h2>
+            <p>This is a TextView example. TextViews are used to display text to the user.</p>
+        </div>
+
+        <div class="view-demo">
+            <h2>Button Demo</h2>
+            <button onclick="showToast()">Click Me!</button>
+        </div>
+
+        <div class="view-demo">
+            <h2>Input Demo</h2>
+            <input type="text" placeholder="Type something..." id="inputDemo">
+            <button onclick="showInput()">Show Input</button>
+        </div>
+    </div>
+
+    <script>
+        function showToast() {
+            alert('Button clicked! This is a JavaScript interaction.');
+        }
+
+        function showInput() {
+            const input = document.getElementById('inputDemo');
+            alert('You typed: ' + input.value);
+        }
+    </script>
+</body>
+</html> 
