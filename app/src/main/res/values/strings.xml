@@ -180,4 +180,6 @@
     <string name="intent_topic_icon_description">Topic Icon</string>
     <string name="intent_topic_expand_description">Expand Topic</string>
 
+    <string name="views_interactive_title">Views and Layouts Playground</string>
+
 </resources>

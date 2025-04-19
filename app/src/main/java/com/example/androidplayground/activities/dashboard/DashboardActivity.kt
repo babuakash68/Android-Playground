@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidplayground.R
 import com.example.androidplayground.activities.learning.TheoryActivity
+import com.example.androidplayground.activities.learning.interactive.views.ViewsInteractiveActivity
 import com.example.androidplayground.data.AppDatabase
 import com.example.androidplayground.data.User
 import com.example.androidplayground.data.model.AndroidTopic
@@ -258,6 +259,11 @@ class DashboardActivity : AppCompatActivity() {
                 title = "Intents",
                 description = "Explore the power of Intents in Android communication",
                 iconResId = R.drawable.ic_intent
+            ),
+            AndroidTopic(
+                title = "Views and Layouts",
+                description = "Master Android UI components and WebView integration",
+                iconResId = R.drawable.ic_views
             )
         )
         topicsAdapter.updateItems(topics.toMutableList())
@@ -290,7 +296,12 @@ class DashboardActivity : AppCompatActivity() {
                 }
                 "Intents" -> {
                     putExtra(TheoryActivity.EXTRA_HTML_RESOURCE, R.raw.intent_theory)
-                    putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.intent.IntentInteractiveActivity")
+                    putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.interactive.intent.IntentInteractiveActivity")
+                    putExtra(TheoryActivity.EXTRA_SHOW_DIAGRAM, false)
+                }
+                "Views and Layouts" -> {
+                    putExtra(TheoryActivity.EXTRA_HTML_RESOURCE, R.raw.views_layouts_theory)
+                    putExtra(TheoryActivity.EXTRA_INTERACTIVE_ACTIVITY, "com.example.androidplayground.activities.learning.interactive.views.ViewsInteractiveActivity")
                     putExtra(TheoryActivity.EXTRA_SHOW_DIAGRAM, false)
                 }
             }
